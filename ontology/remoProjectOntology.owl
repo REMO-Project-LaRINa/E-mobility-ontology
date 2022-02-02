@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/msi/ontologies/2022/0/remoProjectOntology#"
+     xml:base="http://www.semanticweb.org/msi/ontologies/2022/0/remoProjectOntology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
+     xmlns:saref4auto="https://saref.etsi.org/saref4auto/"
+     xmlns:saref4syst="https://saref.etsi.org/saref4syst/"
+     xmlns:remoProjectOntology="http://www.semanticweb.org/remoProjectOntology/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/remoProjectOntology">
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <owl:imports rdf:resource="https://saref.etsi.org/saref4auto/v1.1.1/"/>
+        <owl:imports rdf:resource="https://saref.etsi.org/saref4syst/v1.1.2/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/chargesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/remoProjectOntology/chargesIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/hasEVSE -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/remoProjectOntology/hasEVSE"/>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/exchangesElectricityWith -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/exchangesElectricityWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/hasMaxRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/remoProjectOntology/hasMaxRange"/>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/hasStateOfCharge -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/remoProjectOntology/hasStateOfCharge"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://saref.etsi.org/saref4auto/ElectricChargingParkingSpot -->
+
+    <rdf:Description rdf:about="https://saref.etsi.org/saref4auto/ElectricChargingParkingSpot">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/remoProjectOntology/hasEVSE"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4syst/ElectricVehicleServiceEquipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/ElectricVehicle -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/ElectricVehicle">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/remoProjectOntology/chargesIn"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4auto/ElectricChargingParkingSpot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4auto/hasRoute"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4auto/Route"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4syst/exchangesElectricityWith"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4syst/ElectricVehicleServiceEquipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/remoProjectOntology/hasMaxRange"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/remoProjectOntology/hasStateOfCharge"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/ElectricVehicleServiceEquipment -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/ElectricVehicleServiceEquipment">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/NormalPlug -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/NormalPlug">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/PlugHighVoltage -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/PlugHighVoltage">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/ThreePhaseConnectionPoint -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/ThreePhaseConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/SAEJ1772 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/SAEJ1772">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4syst/NormalPlug"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/cp1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/cp1">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/ElectricChargingParkingSpot"/>
+        <geosparql:hasGeometry rdf:resource="http://www.semanticweb.org/remoProjectOntology/parkingPoint1"/>
+        <remoProjectOntology:hasEVSE rdf:resource="http://www.semanticweb.org/remoProjectOntology/evse1"/>
+        <saref4auto:hasParkingSpotState rdf:resource="https://saref.etsi.org/saref4auto/isFree"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/cp2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/cp2">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/ElectricChargingParkingSpot"/>
+        <geosparql:hasGeometry rdf:resource="http://www.semanticweb.org/remoProjectOntology/parkingPoint2"/>
+        <saref4auto:hasParkingSpotState rdf:resource="https://saref.etsi.org/saref4auto/isReserved"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/ev1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/ev1">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4syst/ElectricVehicle"/>
+        <saref4auto:hasRoute rdf:resource="http://www.semanticweb.org/remoProjectOntology/routeX"/>
+        <saref4syst:connectsAt rdf:resource="http://www.semanticweb.org/remoProjectOntology/SAEJ1772"/>
+        <remoProjectOntology:hasMaxRange rdf:datatype="http://www.w3.org/2001/XMLSchema#float">313.0</remoProjectOntology:hasMaxRange>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/evse1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/evse1">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4syst/ElectricVehicleServiceEquipment"/>
+        <saref4syst:connectsAt rdf:resource="http://www.semanticweb.org/remoProjectOntology/SAEJ1772"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/fleetDepot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/fleetDepot">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/StartPoint"/>
+        <geosparql:asWKT rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">Point(-77.03625 38.89956)</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/parkingPoint1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/parkingPoint1">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/ParkingSpotPoint"/>
+        <geosparql:asWKT rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">Point(-77.03525 38.88956)</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/parkingPoint2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/parkingPoint2">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/ParkingSpotPoint"/>
+        <geosparql:asWKT rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">Point(-77.03637 38.89761)</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/remoProjectOntology/routeX -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/remoProjectOntology/routeX">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/Route"/>
+        <saref4auto:hasOrigin rdf:resource="http://www.semanticweb.org/remoProjectOntology/fleetDepot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://saref.etsi.org/saref4auto/isFree -->
+
+    <owl:NamedIndividual rdf:about="https://saref.etsi.org/saref4auto/isFree">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/Free"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://saref.etsi.org/saref4auto/isReserved -->
+
+    <owl:NamedIndividual rdf:about="https://saref.etsi.org/saref4auto/isReserved">
+        <rdf:type rdf:resource="https://saref.etsi.org/saref4auto/Reserved"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
