@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://saref.etsi.org/core/v3.1.1/" uri="https://saref.etsi.org/core/"/>
+    <uri id="Imports Wizard Entry" name="https://saref.etsi.org/saref4syst/v1.1.2/" uri="https://saref.etsi.org/saref4syst/v1.1.2/saref4syst.rdf"/>
+    <uri id="Imports Wizard Entry" name="https://saref.etsi.org/core/v3.1.1/" uri="https://saref.etsi.org/core/v3.1.1/saref.rdf"/>
+    <uri id="Imports Wizard Entry" name="https://saref.etsi.org/saref4auto/v1.1.1/" uri="https://saref.etsi.org/saref4auto/v1.1.1/saref4auto.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1648111215699" name="http://www.semanticweb.org/msi/ontologies/2022/0/remoProjectOntology" uri="remoProjectOntology.owl"/>
+    </group>
+</catalog>
